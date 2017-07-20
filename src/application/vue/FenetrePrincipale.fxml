@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="566.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.Controller">
+   <center>
+      <TabPane prefHeight="588.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Cesar">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="523.0" prefWidth="400.0">
+                           <children>
+                              <TitledPane animated="false" text="Chiffrement">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="215.0" prefWidth="398.0">
+                                       <children>
+                                          <VBox layoutX="-1.0" prefHeight="200.0" prefWidth="400.0">
+                                             <children>
+                                                <Label text="Saisir le texte à chiffrer : " />
+                                                <TextArea fx:id="tb_achiffrer" prefHeight="53.0" prefWidth="370.0" />
+                                                <HBox prefHeight="26.0" prefWidth="370.0">
+                                                   <children>
+                                                      <Label text="Saisir la clé de chiffrement :">
+                                                         <padding>
+                                                            <Insets top="2.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <TextField fx:id="cle" prefHeight="25.0" prefWidth="57.0">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <Button mnemonicParsing="false" onAction="#chiffrer" prefHeight="25.0" prefWidth="144.0" text="Chiffrer">
+                                                         <HBox.margin>
+                                                            <Insets left="15.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Label text="Texte chiffré : ">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin> 
+                                                </Label>
+                                                <TextArea fx:id="tb_textechiffre" editable="false" prefHeight="52.0" prefWidth="370.0" />
+                                             </children>
+                                             <padding>
+                                                <Insets left="15.0" right="15.0" top="15.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane animated="false" prefHeight="308.0" prefWidth="400.0" text="Déchiffrement">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="311.0" prefWidth="398.0">
+                                       <children>
+                                          <VBox layoutX="-2.0" layoutY="-2.0" prefHeight="269.0" prefWidth="400.0">
+                                             <padding>
+                                                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                                             </padding>
+                                             <children>
+                                                <Label text="Saisir le texte a déchiffrer : " />
+                                                <TextArea fx:id="tb_adechiffrer" prefHeight="60.0" prefWidth="370.0">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin>
+                                                </TextArea>
+                                                <RadioButton fx:id="rb_devinerSolution" mnemonicParsing="false" selected="true" text="Laisser le logiciel déterminer la solution">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="modeDechiffrement" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rb_toutesSolutions" mnemonicParsing="false" text="Tester toutes les clés possibles" toggleGroup="$modeDechiffrement" />
+                                                <RadioButton fx:id="rb_codeconnu" mnemonicParsing="false" text="Préciser vous-même la clé de chiffrement" toggleGroup="$modeDechiffrement" />
+                                                <HBox prefHeight="28.0" prefWidth="370.0">
+                                                   <children>
+                                                      <Label text="Saisir la clé de chiffrement :">
+                                                         <padding>
+                                                            <Insets top="2.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <TextField fx:id="tb_cleconnu" prefHeight="25.0" prefWidth="57.0">
+                                                         <HBox.margin>
+                                                            <Insets left="5.0" />
+                                                         </HBox.margin>
+                                                      </TextField>
+                                                      <Button mnemonicParsing="false" onAction="#dechiffrer" prefHeight="25.0" prefWidth="143.0" text="Déchiffrer">
+                                                         <HBox.margin>
+                                                            <Insets left="15.0" />
+                                                         </HBox.margin>
+                                                      </Button>
+                                                   </children>
+                                                   <VBox.margin>
+                                                      <Insets top="5.0" />
+                                                   </VBox.margin>
+                                                </HBox>
+                                                <Label text="Déchiffrement : ">
+                                                   <VBox.margin>
+                                                      <Insets top="15.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextArea fx:id="tb_dechiffre" editable="false" prefHeight="58.0" prefWidth="370.0" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Vigenère">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="541.0" prefWidth="400.0">
+                           <children>
+                              <TitledPane animated="false" prefHeight="257.0" prefWidth="400.0" text="Chiffrement">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="296.0">
+                                       <children>
+                                          <GridPane prefHeight="208.0" prefWidth="400.0" vgap="6.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="142.0" minWidth="10.0" prefWidth="135.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="118.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Texte original :" />
+                                                <Label text="Clé de chiffrement :" GridPane.rowIndex="1" />
+                                                <Label text="Texte chiffré :" GridPane.rowIndex="3" />
+                                                <TextArea fx:id="tb_vig_original" prefHeight="58.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                                                <TextArea fx:id="tb_vig_cleChiffrement" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+                                                <TextArea fx:id="tb_vig_chiffre" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                                <Button mnemonicParsing="false" onAction="#chiffrerVigenere" prefHeight="25.0" prefWidth="133.0" text="Chiffrer" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane animated="false" prefHeight="330.0" prefWidth="400.0" text="Déchiffrement">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="296.0">
+                                       <children>
+                                          <GridPane layoutX="-1.0" prefHeight="270.0" prefWidth="400.0" vgap="6.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="170.0" minWidth="10.0" prefWidth="126.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="114.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="Texte chiffré" />
+                                                <Label text="Texte déchiffré :" GridPane.rowIndex="5" />
+                                                <TextArea fx:id="tb_vig_adechiffrer" prefHeight="58.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+                                                <TextArea fx:id="ta_vig_resultatDechiffre" editable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
+                                                <Button mnemonicParsing="false" onAction="#dechiffrerVigenere" prefHeight="25.0" prefWidth="133.0" text="Déchiffrer" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                                                <RadioButton fx:id="rb_vig_inconnue" mnemonicParsing="false" selected="true" text="Clé inconnue" GridPane.rowIndex="1">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="modeDechiffrementVigenere" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rb_vig_lgConnue" mnemonicParsing="false" text="Longueur clé connue" toggleGroup="$modeDechiffrementVigenere" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                                                <RadioButton fx:id="rb_vig_cleConnue" mnemonicParsing="false" text="Clé connue" toggleGroup="$modeDechiffrementVigenere" GridPane.rowIndex="3" />
+                                                <TextField fx:id="tf_vig_lgCle" prefHeight="25.0" prefWidth="74.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tf_vig_cle" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="3" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </children>  
+                                      </AnchorPane>    
+                                 </content>
+                              </TitledPane>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
